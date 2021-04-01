@@ -1,4 +1,14 @@
 <table class='table'>
+  <% if user.errors.any? %>
+  <%= user.errors.count %>件のエラーが発生しました
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
   <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
   <tr>
 	  <th>name</th>
